@@ -20,4 +20,4 @@ A calendar to provide a more organized life to the everyday student, since nothi
 
 ## Required API's
 - Student timetable from sigarra <br />
-- - Google calendar API <br />
+- Google calendar API <br />
