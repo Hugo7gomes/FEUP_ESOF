@@ -2,11 +2,11 @@
 
 ## Members
 
-Hugo Gomes - up202004343
-Diogo Silva - up202004288
-Lia Vieira - up202005042
-João Moreira - up202005035
-João Araújo - up202007855
+Hugo Gomes - up202004343 <br />
+Diogo Silva - up202004288 <br />
+Lia Vieira - up202005042 <br />
+João Moreira - up202005035 <br />
+João Araújo - up202007855 <br />
 
 # Product Name
 
