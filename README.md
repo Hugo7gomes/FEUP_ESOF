@@ -11,7 +11,7 @@ João Araújo - up202007855 <br />
 # Product Name
 
 ## Vision Stament
-A calendar to provide a more organized life to the everyday student, since nothing is worse than realizing that your deadline was yesterday
+A calendar to provide a more organized life to the everyday student, since nothing is worse than realizing that your deadline was yesterday.
 
 ## Main Features
  - Feature 1 - Short description
@@ -19,4 +19,5 @@ A calendar to provide a more organized life to the everyday student, since nothi
 ...
 
 ## Required API's
-- Student timetable from sigarra
+- Student timetable from sigarra <br />
+- - Google calendar API <br />
