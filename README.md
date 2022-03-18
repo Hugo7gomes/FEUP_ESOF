@@ -1,16 +1,22 @@
-# flutter_application_1
+# Team name
 
-A new Flutter project.
+## Members
 
-## Getting Started
+Hugo Gomes - up202004343
+Diogo Silva - up202004288
+Lia Vieira - up202005042
+João Moreira - up202005035
+João Araújo - up202007855
 
-This project is a starting point for a Flutter application.
+# Product Name
 
-A few resources to get you started if this is your first Flutter project:
+## Vision Stament
+A calendar to provide a more organized life to the everyday student, since nothing is worse than realizing that your deadline was yesterday
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Main Features
+ - Feature 1 - Short description
+ - Feature 2 - Short description
+...
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Required API's
+- Student timetable from sigarra
