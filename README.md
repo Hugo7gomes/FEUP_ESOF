@@ -27,8 +27,7 @@ samples, guidance on mobile development, and a full API reference.
 In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
 ### Use case model 
-
-
+![Uml user](https://user-images.githubusercontent.com/80840030/160202981-940749f1-6fd2-47bc-a2e5-e474b5e46238.jpeg)
 ###  Visualize the calendar
 
 |||
@@ -83,3 +82,4 @@ To better understand the context of the software system, it is very useful to ha
 Also provide a short textual description of each class. 
 
 Example:
+![Uml classes](https://user-images.githubusercontent.com/80840030/160203058-76263fab-2767-4082-a646-83da9e3d5f43.jpeg)
