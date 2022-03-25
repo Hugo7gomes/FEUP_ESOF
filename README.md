@@ -1,15 +1,22 @@
-# flutter_application_1
+# Team name
 
-A new Flutter project.
+## Members
 
-## Getting Started
+Hugo Gomes - up202004343 <br />
+Diogo Silva - up202004288 <br />
+Lia Vieira - up202005042 <br />
+João Moreira - up202005035 <br />
+João Araújo - up202007855 <br />
 
-This project is a starting point for a Flutter application.
+# Product Name
 
-A few resources to get you started if this is your first Flutter project:
+## Vision Stament
+A calendar to provide a more organized life to the everyday student, since nothing is worse than realizing that your deadline was yesterday.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Main Features
+ - Feature 1 - Short description
+ - Feature 2 - Short description
+...
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
@@ -21,9 +28,6 @@ In this section, you should describe all kinds of requirements for your module: 
 
 ### Use case model 
 
- <p align="center" justify="center">
-  <img src="https://github.com/LEIC-ES-2021-22/2LEIC02T2/use-case-diagram.png"/>
-</p>
 
 ###  Visualize the calendar
 
@@ -73,13 +77,9 @@ In this section, you should describe all kinds of requirements for your module: 
 | *Alternative flows and exceptions* | 
 
 
-
 ### Domain model
 
 To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module. 
 Also provide a short textual description of each class. 
 
 Example:
- <p text-align="center" justify="center">
-  <img src="https://github.com/LEIC-ES-2021-22/2LEIC02T2/domain-model.png"/>
-</p>
