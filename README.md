@@ -1,5 +1,4 @@
-![Domain_model](https://user-images.githubusercontent.com/80840030/161306610-75228a1b-38f7-4c81-a897-b3bfbc0512bc.png)
-![Domain_model](https://user-images.githubusercontent.com/80840030/161306659-ce1ba5a3-a912-44be-87ab-98306f4b1d6c.png)
+
 # Team name
 
 ## Members
@@ -89,4 +88,4 @@ Also provide a short textual description of each class.
 
 Example:
 
-![Uml classes](https://user-images.githubusercontent.com/80840030/160203058-76263fab-2767-4082-a646-83da9e3d5f43.jpeg)
+![Domain_model](https://user-images.githubusercontent.com/80840030/161306659-ce1ba5a3-a912-44be-87ab-98306f4b1d6c.png)
