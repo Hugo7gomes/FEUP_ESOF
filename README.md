@@ -88,7 +88,7 @@ samples, guidance on mobile development, and a full API reference.
 ### Logical architecture
 The purpose of this subsection is to document the high-level logical structure of the code (Logical View), using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 
-![LogicalView](https://user-images.githubusercontent.com/82061138/162994062-fdffc56e-37ff-4afe-be8f-e8cad5974960.png)
+![packagediagram](https://user-images.githubusercontent.com/82061138/162994062-fdffc56e-37ff-4afe-be8f-e8cad5974960.png)
 
 Calendar events system:
 - Calendar GUI (interface that allows users to visualize the calendar and interact with it)
