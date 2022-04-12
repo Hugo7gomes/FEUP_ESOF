@@ -88,7 +88,7 @@ samples, guidance on mobile development, and a full API reference.
 ### Logical architecture
 The purpose of this subsection is to document the high-level logical structure of the code (Logical View), using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 
-![LogicalView]()
+![LogicalView](https://user-images.githubusercontent.com/82061138/162984447-2957a5d6-b7d2-4410-b3b8-d779f11f9c02.png)
 
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams (Deployment View) or component diagrams (Implementation View), separate or integrated, showing the physical structure of the system.
