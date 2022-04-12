@@ -86,7 +86,6 @@ samples, guidance on mobile development, and a full API reference.
 ## Architecture and Design
 
 ### Logical architecture
-The purpose of this subsection is to document the high-level logical structure of the code (Logical View), using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 
 ![packagediagram](https://user-images.githubusercontent.com/82061138/162994062-fdffc56e-37ff-4afe-be8f-e8cad5974960.png)
 
@@ -102,5 +101,5 @@ External services:
 - UNI Backend (the university system)
 
 ### Physical architecture
-The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams (Deployment View) or component diagrams (Implementation View), separate or integrated, showing the physical structure of the system.
+![physical_architecture](https://user-images.githubusercontent.com/80840555/163066282-919e9351-a6e2-418a-8d4c-a73883573e61.png)
 
