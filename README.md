@@ -90,6 +90,17 @@ The purpose of this subsection is to document the high-level logical structure o
 
 ![LogicalView](https://user-images.githubusercontent.com/82061138/162985591-05b893dd-1cc4-4c76-9aa9-374150ac9d9b.png)
 
+Calendar events system:
+- Calendar GUI (interface that allows users to visualize the calendar and interact with it)
+- Events UI (interface which makes the management of university events possible for users)
+- User validation application (user course detection and student/teacher permissions)
+- Events distribution logic (logic by which the system of university events is established)
+- Events database schema (where data regarding events is stored)
+
+External services:
+- Google Calendar (provides an updated calendar for the application)
+- UNI Backend (the university system)
+
 ### Physical architecture
 The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams (Deployment View) or component diagrams (Implementation View), separate or integrated, showing the physical structure of the system.
 
