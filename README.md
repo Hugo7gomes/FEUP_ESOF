@@ -25,8 +25,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Requirements
 
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
-
 ### Use case model 
 ![Uml user](https://user-images.githubusercontent.com/80840030/160202981-940749f1-6fd2-47bc-a2e5-e474b5e46238.jpeg)
 
@@ -83,9 +81,15 @@ In this section, you should describe all kinds of requirements for your module: 
 
 ### Domain model
 
-To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module. 
-Also provide a short textual description of each class. 
-
-Example:
-
 ![Domain_model](https://user-images.githubusercontent.com/80840030/161306659-ce1ba5a3-a912-44be-87ab-98306f4b1d6c.png)
+
+## Architecture and Design
+
+### Logical architecture
+The purpose of this subsection is to document the high-level logical structure of the code (Logical View), using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
+
+![LogicalView]()
+
+### Physical architecture
+The goal of this subsection is to document the high-level physical structure of the software system (machines, connections, software components installed, and their dependencies) using UML deployment diagrams (Deployment View) or component diagrams (Implementation View), separate or integrated, showing the physical structure of the system.
+
