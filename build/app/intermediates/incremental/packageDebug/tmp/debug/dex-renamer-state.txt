@@ -1,0 +1,4 @@
+#Tue Apr 12 23:19:51 WEST 2022
+base.0=/home/moreira/Documents/Faculdade/ES/project/2LEIC02T2/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
