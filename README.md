@@ -103,3 +103,6 @@ External services:
 ### Physical architecture
 ![physical_architecture](https://user-images.githubusercontent.com/80840555/163066282-919e9351-a6e2-418a-8d4c-a73883573e61.png)
 
+### Vertical Prototype
+
+For now the group has started to interact with the flutter tool. Therefore, we started by printing the group number and printing the tool name we intend to work with.
