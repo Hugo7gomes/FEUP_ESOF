@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
+import 'calendar_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
+  static String title = 'UNI Calendar';
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: const Text('Grupo 2'),
-        ),
-        body: const Center(
-          child: Text('Calendar App'),
-        ),
-      ),
+      title: title,
+      home: const CalendarPage(),
     );
   }
 }
