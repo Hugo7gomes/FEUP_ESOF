@@ -97,7 +97,6 @@ Calendar events system:
 - Events database schema (where data regarding events is stored)
 
 External services:
-- Google Calendar (provides an updated calendar for the application)
 - UNI Backend (the university system)
 
 ### Physical architecture
