@@ -60,6 +60,9 @@ class _CalendarPageState extends State<CalendarPage> {
               color: Colors.red,
               shape: BoxShape.circle,
             )),
+        headerStyle: const HeaderStyle(
+          formatButtonShowsNext: false,
+        ),
       ),
     );
   }
