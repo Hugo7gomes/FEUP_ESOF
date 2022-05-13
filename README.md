@@ -36,7 +36,7 @@ samples, guidance on mobile development, and a full API reference.
 | *Actor* | Student | 
 | *Description* | Allows the user to navigate the calendar. The user can navigate by day, week, or month. |
 | *Preconditions* | -The user needs to be authenticated.<br> |
-| *Normal flow* | 1. The user opens the calendary section on the app <br> 2. The calendar is synced with Google Calendar and loaded with data of evaluation moments <br> 3. The application shows the calendar <br> 4. The user can visualize the calendar and navigate on it as well <br> 5. The user can click on an event to check data about it |
+| *Normal flow* | 1. The user opens the calendary section on the app <br> 2. The calendar is loaded with data of evaluation moments <br> 3. The application shows the calendar <br> 4. The user can visualize the calendar and navigate on it as well <br> 5. The user can click on an event to check data about it |
 | *Alternative flows and exceptions* | None. |
 
 
