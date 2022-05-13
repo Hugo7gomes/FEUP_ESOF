@@ -41,11 +41,14 @@ class _CalendarPageState extends State<CalendarPage> {
             _calendarFormat = format;
           });
         },
+        availableCalendarFormats: const {
+          CalendarFormat.month: 'Mês',
+          CalendarFormat.twoWeeks: '2 Semanas',
+          CalendarFormat.week: 'Semana'
+        },
         onPageChanged: (focusedDay) {
           _focusedDay = focusedDay;
         },
-        startingDayOfWeek: StartingDayOfWeek.sunday,
-        daysOfWeekVisible: true,
         calendarStyle: CalendarStyle(
             isTodayHighlighted: true,
             defaultTextStyle: const TextStyle(color: Colors.black),
