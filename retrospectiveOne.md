@@ -16,6 +16,10 @@ We should have known that the google calendar was not the best tool for our app'
 In certain aspects, how should we interact with the calendar's package.
 <br />
 
+## Github Panel
 
+<p align="center" justify="center">
+  <img src="Github_panel.png" width="" height=""/>
+</p>
 
 
