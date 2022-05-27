@@ -97,7 +97,7 @@ class MyAppState extends State<MyApp> {
                     page: BusStopNextArrivalsPage(), settings: settings);
               case '/' + Constants.navCalendar:
                 return PageTransition.makePageTransition(
-                    page: CalendarPage(), settings: settings);
+                    page: CalendarPageView(), settings: settings);
               case '/' + Constants.navAbout:
                 return PageTransition.makePageTransition(
                     page: AboutPageView(), settings: settings);

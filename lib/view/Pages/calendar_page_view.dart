@@ -5,7 +5,7 @@ import 'package:uni/model/entities/exam.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class CalendarPage extends StatefulWidget {
+class CalendarPageView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => CalendarPageViewState();
 }
@@ -26,22 +26,22 @@ class CalendarPageViewState extends SecondaryPageViewState {
             .toList();
       },
       builder: (context, exams) {
-        return Cal(exams: exams);
+        return Calendar(exams: exams);
       },
     );
   }
 }
 
-class Cal extends StatefulWidget {
+class Calendar extends StatefulWidget {
   final List<Exam> exams;
 
-  Cal({Key key, @required this.exams}) : super(key: key);
+  Calendar({Key key, @required this.exams}) : super(key: key);
 
   @override
-  State<Cal> createState() => CalPage();
+  State<Calendar> createState() => CalendarPage();
 }
 
-class CalPage extends State<Cal> {
+class CalendarPage extends State<Calendar> {
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime _selectedDay = DateTime.now();
