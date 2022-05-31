@@ -22,6 +22,7 @@ import 'package:uni/view/Pages/splash_page_view.dart';
 import 'package:uni/view/Widgets/page_transition.dart';
 import 'package:uni/view/navigation_service.dart';
 import 'package:uni/view/theme.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'controller/on_start_up.dart';
 import 'model/schedule_page_model.dart';
@@ -43,7 +44,7 @@ Future<void> main() async {
       options.dsn =
           'https://a2661645df1c4992b24161010c5e0ecb@o553498.ingest.sentry.io/5680848';
     },
-    appRunner: () => {runApp(MyApp())},
+    appRunner: () => {initializeDateFormatting().then((_) => runApp(MyApp()))},
   );
 }
 
