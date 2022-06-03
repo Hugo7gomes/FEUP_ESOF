@@ -15,9 +15,12 @@ João Araújo - up202007855 <br />
 A calendar to provide a more organized life to the everyday student, since nothing is worse than realizing that your deadline was yesterday.
 
 ## Main Features
- - Feature 1 - Short description
- - Feature 2 - Short description
-...
+ - Calendar within the UNI application displaying evaluation moments and other personal events. 
+ - Movement between months with a slide interaction.
+ - Exams that show up correspond to the user's course and disciplines.
+ - The user is able to check details about the exams/deliveries by clicking on the specific event.
+ - Evaluation moments are up to date with the backend information at all moments.
+ - Users can add personal events and manage them.
 
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
