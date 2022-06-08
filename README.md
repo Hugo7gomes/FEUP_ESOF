@@ -97,7 +97,7 @@ Calendar events system:
 - User validation application (user course detection and student/teacher permissions)
 - Events distribution logic (logic by which the system of university events is established)
 - Events database schema (where data regarding events is stored)
-- 
+
 External services:
 - UNI Backend (the university system)
 
