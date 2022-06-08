@@ -110,14 +110,14 @@ class CalendarWidget extends State<Calendar> {
                           color: Colors.red[700],
                         ),
                         child: ListTile(
-                          title: Text(
-                            value[index].title,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
+                            textColor: Colors.white,
+                            title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(value[index].title),
+                                  Text(value[index].description),
+                                ])),
                       );
                     },
                   );
