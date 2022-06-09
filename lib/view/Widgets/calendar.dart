@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:uni/model/entities/event.dart';
+import 'package:uni/view/Widgets/add_event.dart';
 import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
@@ -28,148 +29,130 @@ class CalendarWidget extends State<Calendar> {
     return e;
   }
 
-  final TextEditingController _eventController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Calendário',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
+      appBar: AppBar(
+        title: const Text(
+          'Calendário',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.red[900],
+        automaticallyImplyLeading: false,
+      ),
+      body: Column(
+        children: [
+          TableCalendar(
+            locale: 'pt_BR',
+            firstDay: DateTime(2000),
+            lastDay: DateTime(2070),
+            focusedDay: _focusedDay,
+            selectedDayPredicate: (day) {
+              return isSameDay(_selectedDay, day);
+            },
+            onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
+              setState(() {
+                _selectedDay = selectedDay;
+                _focusedDay = focusedDay;
+                _selectedEvents = ValueNotifier(_getEventsForDay(selectedDay));
+              });
+            },
+            calendarFormat: _calendarFormat,
+            onFormatChanged: (format) {
+              setState(() {
+                _calendarFormat = format;
+              });
+            },
+            availableCalendarFormats: const {
+              CalendarFormat.month: 'Mês',
+              CalendarFormat.twoWeeks: '2 Semanas',
+              CalendarFormat.week: 'Semana'
+            },
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
+            calendarStyle: CalendarStyle(
+                isTodayHighlighted: true,
+                defaultTextStyle: const TextStyle(color: Colors.black),
+                selectedDecoration: BoxDecoration(
+                  color: Colors.red[900],
+                  shape: BoxShape.circle,
+                ),
+                todayDecoration: const BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                )),
+            headerStyle: const HeaderStyle(
+              formatButtonShowsNext: false,
+            ),
+            eventLoader: (day) {
+              return _getEventsForDay(day);
+            },
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(
+              horizontal: 12.0,
+              vertical: 8.0,
+            ),
+            child: FloatingActionButton.extended(
+              label: Text(
+                'Adicionar Evento',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(Icons.add, color: Colors.white),
+              backgroundColor: Colors.grey[900],
+              onPressed: () async {
+                final event = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          AddEvent(selectedDay: _selectedDay)),
+                );
+                if (event.getTitle() != '') {
+                  widget.events.add(event);
+                }
+                setState(() {});
+              },
             ),
           ),
-          centerTitle: true,
-          backgroundColor: Colors.red[900],
-          automaticallyImplyLeading: false,
-        ),
-        resizeToAvoidBottomInset: false,
-        body: Column(
-          children: [
-            TableCalendar(
-              locale: 'pt_BR',
-              firstDay: DateTime(2000),
-              lastDay: DateTime(2070),
-              focusedDay: _focusedDay,
-              selectedDayPredicate: (day) {
-                return isSameDay(_selectedDay, day);
-              },
-              onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
-                setState(() {
-                  _selectedDay = selectedDay;
-                  _focusedDay = focusedDay;
-                  _selectedEvents =
-                      ValueNotifier(_getEventsForDay(selectedDay));
-                });
-              },
-              calendarFormat: _calendarFormat,
-              onFormatChanged: (format) {
-                setState(() {
-                  _calendarFormat = format;
-                });
-              },
-              availableCalendarFormats: const {
-                CalendarFormat.month: 'Mês',
-                CalendarFormat.twoWeeks: '2 Semanas',
-                CalendarFormat.week: 'Semana'
-              },
-              onPageChanged: (focusedDay) {
-                _focusedDay = focusedDay;
-              },
-              calendarStyle: CalendarStyle(
-                  isTodayHighlighted: true,
-                  defaultTextStyle: const TextStyle(color: Colors.black),
-                  selectedDecoration: BoxDecoration(
-                    color: Colors.red[900],
-                    shape: BoxShape.circle,
-                  ),
-                  todayDecoration: const BoxDecoration(
-                    color: Colors.red,
-                    shape: BoxShape.circle,
-                  )),
-              headerStyle: const HeaderStyle(
-                formatButtonShowsNext: false,
-              ),
-              eventLoader: (day) {
-                return _getEventsForDay(day);
-              },
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 12.0,
-                vertical: 8.0,
-              ),
-              child: FloatingActionButton.extended(
-                backgroundColor: Colors.grey[900],
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text('Adicionar Evento'),
-                    content: TextFormField(
-                      controller: _eventController,
-                    ),
-                    actions: [
-                      TextButton(
-                        child: Text('OK'),
-                        onPressed: () => {
-                          if (_eventController.text.isNotEmpty)
-                            {
-                              widget.events.add(Event(
-                                _eventController.text,
-                                _selectedDay,
-                              ))
-                            },
-                          _eventController.clear(),
-                          Navigator.pop(context),
-                        },
+          const SizedBox(height: 8.0),
+          Expanded(
+            child: ValueListenableBuilder<List<Event>>(
+              valueListenable: _selectedEvents,
+              builder: (context, value, _) {
+                return ListView.builder(
+                  itemCount: value.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                        vertical: 4.0,
                       ),
-                      TextButton(
-                        child: Text('Cancelar'),
-                        onPressed: () => Navigator.pop(context),
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: Colors.red[700],
                       ),
-                    ],
-                  ),
-                ),
-                label: Text(
-                  'Adicionar Evento',
-                  style: TextStyle(color: Colors.white),
-                ),
-                icon: Icon(Icons.add, color: Colors.white),
-              ),
-            ),
-            Expanded(
-              child: ValueListenableBuilder<List<Event>>(
-                valueListenable: _selectedEvents,
-                builder: (context, value, _) {
-                  return ListView.builder(
-                    itemCount: value.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 12.0,
-                          vertical: 5.0,
+                      child: ListTile(
+                        title: Text(
+                          value[index].title,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(12.0),
-                            color: Colors.red[800]),
-                        child: ListTile(
-                            textColor: Colors.white,
-                            title: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(value[index].title),
-                                  Text(value[index].description),
-                                ])),
-                      );
-                    },
-                  );
-                },
-              ),
+                      ),
+                    );
+                  },
+                );
+              },
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }

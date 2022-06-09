@@ -21,6 +21,10 @@ class Event {
     this.subject = '';
   }
 
+  String getTitle() {
+    return title;
+  }
+
   void examEvent(Exam exam) {
     title = exam.subject + ' (' + exam.examType + ')';
     if (exam.begin != null) {
