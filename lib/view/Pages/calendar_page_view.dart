@@ -47,14 +47,14 @@ List<Event> getEvents(store) {
 
   final List<Exam> examEvents = getExams(store);
   for (var exam in examEvents) {
-    final event = Event('', '2022-05-30');
+    final event = Event('', DateTime(2022));
     event.examEvent(exam);
     events.add(event);
   }
 
   final List<Delivery> deliveryEvents = getDeliveries(store);
   for (var delivery in deliveryEvents) {
-    final event = Event('', '2022-05-27');
+    final event = Event('', DateTime(2022));
     event.deliveryEvent(delivery);
     events.add(event);
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:uni/model/entities/event.dart';
+import 'package:intl/intl.dart';
 
 class Calendar extends StatefulWidget {
   final List<Event> events;
@@ -27,6 +28,8 @@ class CalendarWidget extends State<Calendar> {
     return e;
   }
 
+  final TextEditingController _eventController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +44,7 @@ class CalendarWidget extends State<Calendar> {
           backgroundColor: Colors.red[900],
           automaticallyImplyLeading: false,
         ),
+        resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             TableCalendar(
@@ -91,7 +95,49 @@ class CalendarWidget extends State<Calendar> {
                 return _getEventsForDay(day);
               },
             ),
-            const SizedBox(height: 8.0),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 12.0,
+                vertical: 8.0,
+              ),
+              child: FloatingActionButton.extended(
+                backgroundColor: Colors.grey[900],
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: Text('Adicionar Evento'),
+                    content: TextFormField(
+                      controller: _eventController,
+                    ),
+                    actions: [
+                      TextButton(
+                        child: Text('OK'),
+                        onPressed: () => {
+                          if (_eventController.text.isNotEmpty)
+                            {
+                              widget.events.add(Event(
+                                _eventController.text,
+                                _selectedDay,
+                              ))
+                            },
+                          _eventController.clear(),
+                          Navigator.pop(context),
+                        },
+                      ),
+                      TextButton(
+                        child: Text('Cancelar'),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ],
+                  ),
+                ),
+                label: Text(
+                  'Adicionar Evento',
+                  style: TextStyle(color: Colors.white),
+                ),
+                icon: Icon(Icons.add, color: Colors.white),
+              ),
+            ),
             Expanded(
               child: ValueListenableBuilder<List<Event>>(
                 valueListenable: _selectedEvents,
@@ -102,13 +148,12 @@ class CalendarWidget extends State<Calendar> {
                       return Container(
                         margin: const EdgeInsets.symmetric(
                           horizontal: 12.0,
-                          vertical: 4.0,
+                          vertical: 5.0,
                         ),
                         decoration: BoxDecoration(
-                          border: Border.all(),
-                          borderRadius: BorderRadius.circular(12.0),
-                          color: Colors.red[700],
-                        ),
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(12.0),
+                            color: Colors.red[800]),
                         child: ListTile(
                             textColor: Colors.white,
                             title: Row(

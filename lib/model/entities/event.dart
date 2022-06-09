@@ -12,10 +12,10 @@ class Event {
   bool delivery;
   String subject;
 
-  Event(String title, String date) {
+  Event(String title, DateTime date) {
     this.title = title;
     this.description = '';
-    this.date = DateTime.parse(date);
+    this.date = date;
     evaluationMoment = false;
     this.delivery = false;
     this.subject = '';
