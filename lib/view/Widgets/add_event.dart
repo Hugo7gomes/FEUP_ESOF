@@ -26,10 +26,12 @@ class AddEvent extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         automaticallyImplyLeading: true,
       ),
-      body: Form(
+      /*
+      Form(
         key: _formKey,
         child: Column(
           children: [
+            
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 20.0,
@@ -68,7 +70,7 @@ class AddEvent extends StatelessWidget {
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 12.0,
-                vertical: 35.0,
+                vertical: 50.0,
               ),
               child: FloatingActionButton.extended(
                 label: Text(
@@ -100,6 +102,45 @@ class AddEvent extends StatelessWidget {
           ],
         ),
       ),
+      */
+      body: Container(
+          margin: const EdgeInsets.symmetric(
+            horizontal: 20.0,
+            vertical: 100.0,
+          ),
+          padding: EdgeInsets.all(10),
+          constraints: const BoxConstraints(
+            maxWidth: 400,
+          ),
+          child: Text(
+            'Adicionar lembrete de estudo para a data: ' +
+                DateFormat('d/M/y').format(selectedDay),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: BorderRadius.circular(12.0),
+            color: Color.fromARGB(255, 190, 40, 40),
+          )),
+      floatingActionButton: Container(
+        padding: EdgeInsets.only(bottom: 300.0),
+        child: FloatingActionButton.extended(
+          label: Text(
+            'Confirmar',
+            style: TextStyle(color: Colors.white),
+          ),
+          icon: Icon(Icons.check_rounded, color: Colors.white),
+          backgroundColor: Colors.grey[900],
+          onPressed: () {
+            Navigator.pop(context, Event('Lembrete (Estudo)', selectedDay));
+          },
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
