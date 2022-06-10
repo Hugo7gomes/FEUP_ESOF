@@ -27,6 +27,7 @@ List<Exam> getExams(store) {
 List<Delivery> getDeliveries(store) {
   final deliveries = <Delivery>[
     Delivery('DA', DateTime(2022, 6, 6, 23, 59), 'Projeto'),
+    Delivery('ESOF', DateTime(2022, 6, 10, 10, 45), 'Apresentação'),
     Delivery('LCOM', DateTime(2022, 6, 13, 12, 00), 'Projeto'),
     Delivery('LTW', DateTime(2022, 6, 14, 23, 59), 'Projeto'),
   ];
@@ -36,9 +37,7 @@ List<Delivery> getDeliveries(store) {
 
 List<Event> getPersonalEvents(store) {
   final personalEvents = <Event>[];
-
   // to do
-
   return personalEvents;
 }
 

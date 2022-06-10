@@ -55,4 +55,8 @@ class Event {
   void setTitle(String title) {
     this.title = title;
   }
+
+  void setDescription(String title) {
+    this.description;
+  }
 }

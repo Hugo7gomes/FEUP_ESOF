@@ -10,7 +10,9 @@ class Calendar extends StatefulWidget {
   Calendar({Key key, @required this.events}) : super(key: key);
 
   @override
-  State<Calendar> createState() => CalendarWidget();
+  State<StatefulWidget> createState() {
+    return CalendarWidget();
+  }
 }
 
 class CalendarWidget extends State<Calendar> {
@@ -40,7 +42,7 @@ class CalendarWidget extends State<Calendar> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.red[900],
+        backgroundColor: Color.fromARGB(255, 0x75, 0x17, 0x1e),
         automaticallyImplyLeading: false,
       ),
       body: Column(
@@ -78,11 +80,11 @@ class CalendarWidget extends State<Calendar> {
                 isTodayHighlighted: true,
                 defaultTextStyle: const TextStyle(color: Colors.black),
                 selectedDecoration: BoxDecoration(
-                  color: Colors.red[900],
+                  color: Color.fromARGB(255, 0x75, 0x17, 0x1e),
                   shape: BoxShape.circle,
                 ),
                 todayDecoration: const BoxDecoration(
-                  color: Colors.red,
+                  color: Color.fromARGB(255, 190, 40, 40),
                   shape: BoxShape.circle,
                 )),
             headerStyle: const HeaderStyle(
@@ -113,11 +115,11 @@ class CalendarWidget extends State<Calendar> {
                 );
                 if (event.getTitle() != '') {
                   widget.events.add(event);
+                  setState(() {
+                    _selectedEvents =
+                        ValueNotifier(_getEventsForDay(_selectedDay));
+                  });
                 }
-                setState(() {
-                  _selectedEvents =
-                      ValueNotifier(_getEventsForDay(_selectedDay));
-                });
               },
             ),
           ),
@@ -135,17 +137,27 @@ class CalendarWidget extends State<Calendar> {
                         vertical: 4.0,
                       ),
                       decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(12.0),
-                        color: Colors.red[700],
-                      ),
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(12.0),
+                          color: Color.fromARGB(255, 190, 40, 40)),
                       child: ListTile(
-                        title: Text(
-                          value[index].title,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
+                        textColor: Colors.white,
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              value[index].title,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              value[index].description,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     );

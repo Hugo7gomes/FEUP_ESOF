@@ -2,25 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:uni/model/entities/event.dart';
 import 'package:intl/intl.dart';
 
-class AddEvent extends StatefulWidget {
+class AddEvent extends StatelessWidget {
   final DateTime selectedDay;
 
   AddEvent({Key key, @required this.selectedDay}) : super(key: key);
 
-  @override
-  State<AddEvent> createState() => AddEventWidget();
-}
-
-class AddEventWidget extends State<AddEvent> {
   final _formKey = GlobalKey<FormState>();
 
-  TextEditingController textFieldController = TextEditingController();
-
-  @override
-  void dispose() {
-    textFieldController.dispose();
-    super.dispose();
-  }
+  TextEditingController nameFieldController = TextEditingController();
+  TextEditingController timeFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,22 +33,42 @@ class AddEventWidget extends State<AddEvent> {
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 20.0,
-                vertical: 4.0,
+                vertical: 15.0,
               ),
               child: TextFormField(
-                controller: textFieldController,
+                controller: nameFieldController,
                 decoration: const InputDecoration(
                   icon: const Icon(Icons.calendar_today),
-                  hintText: 'Enter a name for the new event',
+                  hintText: 'Give your new event a name',
                   labelText: 'Name',
                 ),
-                onSaved: (val) => textFieldController.text = val.toString(),
+                onSaved: (name) => nameFieldController.text = name.toString(),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 20.0,
+                vertical: 15.0,
+              ),
+              child: TextFormField(
+                controller: timeFieldController,
+                decoration: const InputDecoration(
+                  icon: const Icon(Icons.access_time),
+                  hintText: 'Enter an hour (HH:mm)',
+                  labelText: 'Hour',
+                ),
+                onSaved: (time) {
+                  if (timeFieldController.text.isNotEmpty &&
+                      timeFieldController.text.length == 5) {
+                    timeFieldController.text = time.toString();
+                  }
+                },
               ),
             ),
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 12.0,
-                vertical: 13.0,
+                vertical: 35.0,
               ),
               child: FloatingActionButton.extended(
                 label: Text(
@@ -68,9 +78,22 @@ class AddEventWidget extends State<AddEvent> {
                 icon: Icon(Icons.check_rounded, color: Colors.white),
                 backgroundColor: Colors.grey[900],
                 onPressed: () {
-                  String title = textFieldController.text;
+                  /*
+                  String name = nameFieldController.text;
+                  DateTime time = DateTime(2022);
+                  if (timeFieldController.text.isNotEmpty) {
+                    int y = selectedDay.year;
+                    int m = selectedDay.month;
+                    int d = selectedDay.day;
+                    int h = int.parse(timeFieldController.text.substring(0, 2));
+                    int min =
+                        int.parse(timeFieldController.text.substring(3, 5));
+                    time = DateTime(y, m, d, h, m);
+                  }
+                  Navigator.pop(context, Event(name, time));
+                  */
                   Navigator.pop(
-                      context, Event(title, DateTime(2022, 6, 11, 12, 00)));
+                      context, Event('Lembrete (Estudo)', selectedDay));
                 },
               ),
             ),
