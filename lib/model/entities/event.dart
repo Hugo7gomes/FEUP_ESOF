@@ -51,4 +51,8 @@ class Event {
     this.delivery = true;
     subject = delivery.subject;
   }
+
+  void setTitle(String title) {
+    this.title = title;
+  }
 }

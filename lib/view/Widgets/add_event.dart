@@ -14,8 +14,13 @@ class AddEvent extends StatefulWidget {
 class AddEventWidget extends State<AddEvent> {
   final _formKey = GlobalKey<FormState>();
 
-  String title;
-  DateTime time;
+  TextEditingController textFieldController = TextEditingController();
+
+  @override
+  void dispose() {
+    textFieldController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +36,9 @@ class AddEventWidget extends State<AddEvent> {
         backgroundColor: Colors.grey[900],
         automaticallyImplyLeading: true,
       ),
-      resizeToAvoidBottomInset: false,
       body: Form(
         key: _formKey,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               margin: const EdgeInsets.symmetric(
@@ -43,53 +46,31 @@ class AddEventWidget extends State<AddEvent> {
                 vertical: 4.0,
               ),
               child: TextFormField(
+                controller: textFieldController,
                 decoration: const InputDecoration(
                   icon: const Icon(Icons.calendar_today),
                   hintText: 'Enter a name for the new event',
                   labelText: 'Name',
                 ),
-                validator: (value) {
-                  if (value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  title = value;
-                  return null;
-                },
+                onSaved: (val) => textFieldController.text = val.toString(),
               ),
             ),
             Container(
               margin: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 4.0,
+                horizontal: 12.0,
+                vertical: 13.0,
               ),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  icon: const Icon(Icons.access_time),
-                  hintText: 'Enter an hour (HH:mm)',
-                  labelText: 'Hour',
+              child: FloatingActionButton.extended(
+                label: Text(
+                  'Confirmar',
+                  style: TextStyle(color: Colors.white),
                 ),
-                validator: (value) {
-                  if (value.isNotEmpty && value.length == 5) {
-                    int y = widget.selectedDay.year;
-                    int m = widget.selectedDay.month;
-                    int d = widget.selectedDay.day;
-                    int h = int.parse(value.substring(0, 2));
-                    int min = int.parse(value.substring(3, 5));
-                    time = DateTime(y, m, d, h, m);
-                  }
-                  return null;
-                },
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(left: 150.0, top: 40.0),
-              child: ElevatedButton(
-                child: const Text('OK'),
+                icon: Icon(Icons.check_rounded, color: Colors.white),
+                backgroundColor: Colors.grey[900],
                 onPressed: () {
-                  if (_formKey.currentState.validate()) {
-                    final event = Event('tauas', DateTime(2022, 6, 11, 12, 00));
-                    Navigator.pop(context, event);
-                  }
+                  String title = textFieldController.text;
+                  Navigator.pop(
+                      context, Event(title, DateTime(2022, 6, 11, 12, 00)));
                 },
               ),
             ),

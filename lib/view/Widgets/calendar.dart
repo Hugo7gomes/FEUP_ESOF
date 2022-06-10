@@ -114,7 +114,10 @@ class CalendarWidget extends State<Calendar> {
                 if (event.getTitle() != '') {
                   widget.events.add(event);
                 }
-                setState(() {});
+                setState(() {
+                  _selectedEvents =
+                      ValueNotifier(_getEventsForDay(_selectedDay));
+                });
               },
             ),
           ),
